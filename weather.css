@@ -1,184 +1,145 @@
-body{
-    margin: 0;
-    min-height: 100vh;
-    background-image: url("./newbackground.JPG");
-    background-size: cover;
-background-position: center;
-/* background-repeat: no-repeat; */
-      
-    /* background-position:; */
-    /* background-repeat: no-repeat;  */
-    /* background-color: black;       fills empty space */
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.searchbar{
-    height: 10vh;
-    /* background-color: black; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+  min-height: 100vh;
+  background: url("./newbackground.JPG") center / cover no-repeat;
 }
 
-.searchBarParentDiv{
-    width: 50%;
-    position: relative;
+/* ---------- Search Bar ---------- */
+.searchbar {
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
 }
 
-.inputfield{
-    width: 100%;
-    border-radius: 25px;
-    padding: 10px;
-    outline: none;
+.searchBarParentDiv {
+  width: 90%;
+  position: relative;
 }
 
-.searchIcon{
-    position: absolute;
-    right: 10px;
-    top:5px;
-}
-.searchIcon:hover
-{
-    cursor: pointer;
+.inputfield {
+  width: 100%;
+  padding: 10px 45px 10px 15px;
+  border-radius: 25px;
+  outline: none;
 }
 
-.mainContentParentDiv{
-    height: 90vh;
+.searchIcon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* ---------- Main Layout ---------- */
+.mainContentParentDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ---------- Left Section ---------- */
+.leftDiv,
+.rightDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.leftChild {
+  width: 90%;
+  margin: auto;
+  padding: 15px;
+  border-radius: 15px;
+  background: rgba(212, 212, 212, 0.4);
+  backdrop-filter: blur(15px);
+}
+
+/* Text Sizes */
+#cityName { font-size: 1.6rem; }
+#cityTemp { font-size: 1.3rem; }
+#comingFiveDays { font-size: 1.2rem; }
+
+/* ---------- Right Section ---------- */
+.rightRow {
+  width: 90%;
+  margin: auto;
+}
+
+/* Metrics */
+.extraMetric {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  background: rgba(212, 212, 212, 0.4);
+  backdrop-filter: blur(15px);
+}
+
+/* AQI & Sunrise */
+.rowTwodiv {
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  background: rgba(212, 212, 212, 0.4);
+  backdrop-filter: blur(15px);
+}
+
+/* Today Temps */
+.todayTempParentDiv {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.todayTemp {
+  flex: 1 1 45%;
+  text-align: center;
+  padding: 12px;
+  border-radius: 15px;
+  background: rgba(212, 212, 212, 0.4);
+  backdrop-filter: blur(15px);
+}
+@media (min-width: 768px) {
+
+  .mainContentParentDiv {
     flex-direction: row;
-}
+    height: 90vh;
+  }
 
-.leftDiv{
-    width:30% ;
-    /* border: 1px black solid;  */
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
+  .leftDiv {
+    width: 30%;
+  }
 
-
-.leftChild{
-    background: rgba(212, 212 ,212, 0.4);
-    width:85%;
-    height: 40vh;
-    margin: auto;
-    border-radius: 15px;
-    backdrop-filter: blur(15px);
-}
-
-.currentTempDiv h6{
-    font-size: large;
-}
-#cityName{
-    font-size: xx-large;
-}
-
-#cityTemp{
-    font-size: x-large;
-}
-
-#comingFiveDays{
-    font-size: x-large;
-}
-.rightDiv{
+  .rightDiv {
     width: 70%;
-    /* border: 1px rgb(232, 9, 9) solid; */
-    height: 100%;
+  }
+
+  .leftChild {
+    width: 85%;
+  }
+
+  .rowOne {
     display: flex;
-     flex-direction: column;
-     gap: 20px;
-}
+    justify-content: space-between;
+  }
 
-.rightRow{
-    height: 27vh;
-    width: 100%;
-    /* border: 2px white solid; */
-}
+  .rowTwo {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.extraMetric{
-    background: rgba(212, 212 ,212, 0.4);
-    padding: 5% 2%;
-    width: fit-content;
-    border-radius: 15px;
-    align-items: center;
-    backdrop-filter: blur(15px);
-}
-
-.rowTwodiv{
-    background: rgba(212, 212 ,212, 0.4);
-    backdrop-filter: blur(15px);
+  .rowTwodiv {
     width: 45%;
-    height: 85%;
-    border-radius: 15px;
-}
+  }
 
-.todayTemp{
-     background: rgba(212, 212 ,212, 0.4);
-    backdrop-filter: blur(15px);
-    width: fit-content;
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-}
-
-@media only screen and (max-width:767px)
-{
-    .leftDiv{
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 15px;
-
-    }
-    .rightDiv{
-        width: 100%;
-
-    }
-    .mainContentParentDiv{
-        height: 90vh;
-        flex-direction: row;
-    }
-    .searchbar{
-    width: 100%;
-    }
-    .searchBarParentDiv{
-        width: 85%;
-        height: fit-content;
-        position: relative;
-
-    }
-    .rowOne{
-        /* flex-direction: column; */
-        flex-wrap: wrap;
-        width: 85%;
-        margin: auto;
-    }
-    .rowTwo{
-        flex-direction:column;
-        gap: 10px;
-        height: 30vh;
-    }
-    .rowTwodiv{
-    background: rgba(212, 212 ,212, 0.4);
-    backdrop-filter: blur(15px);
-    width: 85%;
-    height: 85%;
-    border-radius: 15px;
-    }
-   .rowThree{
-    width: 85%;
-    margin: auto;
-   }
-    todayTempParentDiv{
-        width: 100%;
-        flex-wrap: wrap;
-        margin: auto;
-        gap: 15px;
-    }
-
+  .todayTemp {
+    flex: 0 0 auto;
+  }
 }
